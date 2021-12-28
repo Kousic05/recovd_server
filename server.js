@@ -44,6 +44,9 @@ app.use("/doc_userprof", doc_usprofRoute);
 const fileupload_Route = require("./routes/upload_file");
 app.use("/upload_file", fileupload_Route);
 
+const getAllDoc_Route = require("./routes/getAllDoc");
+app.use("/getAllDoc", getAllDoc_Route);
+
 //to listen to the server
 app.listen(3000, () => {
   console.log("server started");
