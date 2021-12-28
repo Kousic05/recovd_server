@@ -8,7 +8,7 @@ const doctorSchema = mongoose.Schema({
   age: {
     type: String,
   },
-  qualification: {
+  position: {
     type: String,
   },
   gender: {
