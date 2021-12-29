@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv/config");
 
 //To convert all to JSON format
 app.use(express.json());
+app.use(cors());
 
 //Main Route
 app.get("/", (req, res) => {
