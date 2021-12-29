@@ -31,6 +31,7 @@ mongoose.connect(
   { retryWrites: true },
   {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
   }
 );
 mongoose.connection
