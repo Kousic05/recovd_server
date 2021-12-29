@@ -23,6 +23,9 @@ const doctorSchema = mongoose.Schema({
   wrk_place: {
     type: String,
   },
+  avatar: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("yzx", doctorSchema, "doctors");
