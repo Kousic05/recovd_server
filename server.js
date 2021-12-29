@@ -14,18 +14,32 @@ app.get("/", (req, res) => {
 });
 
 //DB connection
+// mongoose.connect(
+//   process.env.DB_connection,
+//   { useNewUrlParser: true, useUnifiedTopology: true },
+//   function (error) {
+//     if (error) {
+//       console.log("Database error or database connection error " + error);
+//     } else {
+//       console.log("Database state is " + mongoose.connection.readyState);
+//       console.log("DB connected");
+//     }
+//   }
+// );
 mongoose.connect(
   process.env.DB_connection,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  function (error) {
-    if (error) {
-      console.log("Database error or database connection error " + error);
-    } else {
-      console.log("Database state is " + mongoose.connection.readyState);
-      console.log("DB connected");
-    }
+  { retryWrites: true },
+  {
+    useNewUrlParser: true,
   }
 );
+mongoose.connection
+  .once("open", function () {
+    console.log("Conection has been made!");
+  })
+  .on("error", function (error) {
+    console.log("Error is: ", error);
+  });
 
 app.use("/uploads", express.static("uploads"));
 
