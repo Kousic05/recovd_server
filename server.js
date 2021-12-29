@@ -6,6 +6,11 @@ require("dotenv/config");
 //To convert all to JSON format
 app.use(express.json());
 
+//Main Route
+app.get("/", (req, res) => {
+  res.send("Homepage");
+});
+
 //DB connection
 mongoose.connect(
   process.env.DB_connection,
@@ -53,8 +58,3 @@ app.use("/docAvatar", docAvatar_Route);
 //to listen to the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
-
-//Homepage of DB
-app.get("/", (req, res) => {
-  res.send("Welcome Home");
-});
