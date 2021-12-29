@@ -51,9 +51,7 @@ const docAvatar_Route = require("./routes/docAvatar");
 app.use("/docAvatar", docAvatar_Route);
 
 //to listen to the server
-app.listen(3000, () => {
-  console.log("server started");
-});
+app.listen(PORT, console.log(`Server started on port ${PORT}`));
 
 //Homepage of DB
 app.get("/", (req, res) => {
