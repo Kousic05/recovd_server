@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-require("dotenv").config({ path: ".env" });
+require("dotenv/config");
 
 //To convert all to JSON format
 app.use(express.json());
