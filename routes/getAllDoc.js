@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
     const docpost = await Docpost.find();
     res.json(docpost);
   } catch (err) {
-    res.send(err);
+    res.json({ message: err });
   }
 });
 
