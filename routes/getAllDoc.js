@@ -5,7 +5,9 @@ const Docpost = require("../model/Doctor");
 router.get("/", async (req, res) => {
   try {
     const docpost = await Docpost.find();
-    res.json(docpost);
+    setTimeout(() => {
+      res.json(docpost);
+    }, 3000);
   } catch (err) {
     res.json({ message: err });
   }
