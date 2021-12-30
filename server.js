@@ -29,13 +29,13 @@ app.get("/", (req, res) => {
 mongoose.connect(process.env.DB_connection, () => {
   console.log("DB connection established");
 });
-mongoose.connection
-  .once("open", function () {
-    console.log("Conection has been made!");
-  })
-  .on("error", function (error) {
-    console.log("Error is: ", error);
-  });
+// mongoose.connection
+//   .once("open", function () {
+//     console.log("Conection has been made!");
+//   })
+//   .on("error", function (error) {
+//     console.log("Error is: ", error);
+//   });
 
 app.use("/uploads", express.static("uploads"));
 
