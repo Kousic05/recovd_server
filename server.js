@@ -26,14 +26,9 @@ app.get("/", (req, res) => {
 //     }
 //   }
 // );
-mongoose.connect(
-  process.env.DB_connection,
-  { retryWrites: true },
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.DB_connection, () => {
+  console.log("DB connection established");
+});
 mongoose.connection
   .once("open", function () {
     console.log("Conection has been made!");
