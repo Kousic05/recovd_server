@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const client = require("socket.io").listen(process.env.PORT || 5000).sockets;
+const client = require("socket.io").sockets;
 require("dotenv/config");
 
 //To convert all to JSON format
