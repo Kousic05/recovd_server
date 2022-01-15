@@ -19,6 +19,14 @@ router.post("/", async (req, res) => {
   const passwd = await LoginPost.findOne({ name: req.body.name });
   var pwd1 = passwd.password;
 
+  //password checking
+  try {
+    const validPass = await bcrypt.compare(password, pwd1);
+    if (!validPass) return res.status(400).send("Invalid password");
+  } catch (err) {
+    res.send(err);
+  }
+
   //create and assign a token
   try {
     const token = jwt.sign({ _id: passwd._id }, process.env.TOKEN_SECRET);
@@ -26,14 +34,6 @@ router.post("/", async (req, res) => {
     res.header("auth-token", token).json("Successful");
   } catch (err) {
     res.json(err);
-  }
-
-  //password checking
-  try {
-    const validPass = await bcrypt.compare(password, pwd1);
-    if (!validPass) return res.status(400).send("Invalid password");
-  } catch (err) {
-    res.send(err);
   }
 });
 
