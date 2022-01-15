@@ -22,9 +22,9 @@ router.post("/", async (req, res) => {
   //create and assign a token
   try {
     const token = jwt.sign({ _id: passwd._id }, process.env.TOKEN_SECRET);
-    res.header("auth-token", token).send("Successful");
+    res.header("auth-token", token).json("Successful");
   } catch (err) {
-    res.send(err);
+    res.json(err);
   }
 
   //password checking
