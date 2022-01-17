@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
 //DB connection
 mongoose.connect(
-  "mongodb+srv://inlustro_DB_user:kousic05@cluster0.iyf13.mongodb.net/inlustro_database?retryWrites=true&w=majority",
+  process.env.DB_connection,
   { useNewUrlParser: true, useUnifiedTopology: true },
   function (error) {
     if (error) {
