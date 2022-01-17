@@ -31,9 +31,9 @@ router.post("/", async (req, res) => {
   try {
     const token = jwt.sign({ _id: passwd._id }, process.env.TOKEN_SECRET);
     // console.log(token);
-    res.header("auth-token", token).json("Successful");
+    res.header("auth-token", token).json({ messsage: "Successful" });
   } catch (err) {
-    res.json(err);
+    res.json({ message: err.message });
   }
 });
 
