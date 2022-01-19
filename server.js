@@ -55,6 +55,9 @@ app.use("/upload_file", fileupload_Route);
 const getAllDoc_Route = require("./routes/getAllDoc");
 app.use("/getAllDoc", getAllDoc_Route);
 
+const getAllPat_Route = require("./routes/getAllPat");
+app.use("/getAllPat", getAllPat_Route);
+
 const docAvatar_Route = require("./routes/docAvatar");
 app.use("/docAvatar", docAvatar_Route);
 
